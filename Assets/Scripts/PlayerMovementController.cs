@@ -10,6 +10,7 @@ public class PlayerMovementController : MonoBehaviour
 
     private const string HORIZONTAL_AXIS = "Horizontal";
     private const string VERTICAL_AXIS = "Vertical";
+    private const float STEER_SPEED_DIRECTION = -1f;
 
     private float movementInput;
     private float steerInput;
@@ -31,7 +32,7 @@ public class PlayerMovementController : MonoBehaviour
 
         if (steerInput != 0)
         {
-            transform.Rotate(0, 0, steerInput * SteerSpeed * Time.deltaTime);
+            transform.Rotate(0, 0, steerInput * SteerSpeed * STEER_SPEED_DIRECTION * Time.deltaTime);
         }
     }
 
