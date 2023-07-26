@@ -14,9 +14,8 @@ public class GameEvent : ScriptableObject
 
     public void Raise()
     {
-        for (int i = 0; i < listeners.Count; i++)
-        {
-            this.listeners[i].OnEventRaised();
+        foreach(GameEventListener listener in this.listeners) {
+            listener.OnEventRaised();
         }
     }
 

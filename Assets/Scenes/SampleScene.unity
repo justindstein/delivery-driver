@@ -994,7 +994,7 @@ GameObject:
   - component: {fileID: 144476870}
   m_Layer: 0
   m_Name: PackageBeacon 1
-  m_TagString: Untagged
+  m_TagString: PackageBeacon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1822,7 +1822,7 @@ GameObject:
   - component: {fileID: 376533262}
   m_Layer: 0
   m_Name: DeliveryBeacon 2
-  m_TagString: Untagged
+  m_TagString: DeliveryBeacon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2086,7 +2086,7 @@ GameObject:
   - component: {fileID: 394404656}
   m_Layer: 0
   m_Name: PackageBeacon 2
-  m_TagString: Untagged
+  m_TagString: PackageBeacon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2350,7 +2350,7 @@ GameObject:
   - component: {fileID: 477421830}
   m_Layer: 0
   m_Name: PackageBeacon 3
-  m_TagString: Untagged
+  m_TagString: PackageBeacon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6086,7 +6086,7 @@ GameObject:
   - component: {fileID: 1606893474}
   m_Layer: 0
   m_Name: DeliveryBeacon 1
-  m_TagString: Untagged
+  m_TagString: DeliveryBeacon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7728,7 +7728,7 @@ GameObject:
   - component: {fileID: 2070054903}
   m_Layer: 0
   m_Name: DeliveryBeacon 3
-  m_TagString: Untagged
+  m_TagString: DeliveryBeacon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
