@@ -9,6 +9,6 @@ public class PackageDeliveryController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        this.packageDelivery.Raise();
+        this.packageDelivery.Raise(this, null);
     }
 }

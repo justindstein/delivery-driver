@@ -8,39 +8,28 @@ public class BeaconManager : MonoBehaviour
     private List<GameObject> deliveryBeacons;
     private GameObject lastActiveBeacon;
 
-    private System.Random random;
+    private HashSet<GameObject> packageBeaconsFoo;
 
     public void Awake()
     {
         this.packageBeacons = new List<GameObject>(GameObject.FindGameObjectsWithTag("PackageBeacon"));
         this.deliveryBeacons = new List<GameObject>(GameObject.FindGameObjectsWithTag("DeliveryBeacon"));
 
-        this.deactivateAll(packageBeacons);
-        this.deactivateAll(deliveryBeacons);
-        this.activateRandom(packageBeacons);
+        GameObjectUtil.DeactivateAll(this.packageBeacons);
+        GameObjectUtil.DeactivateAll(this.deliveryBeacons);
+        GameObjectUtil.ActivateRandom(this.packageBeacons);
+
+        List<GameObject> newListShallowCopy = new List<GameObject>(this.packageBeacons); // points to same contents, but a different list
+
     }
 
-    private void deactivateAll(List<GameObject> gameObjects)
+    public void packagePickup(Component sender, object data)
     {
-        foreach (GameObject gameObject in gameObjects)
-        {
-            Debug.Log("Deactivating " + gameObject.name);
-            gameObject.SetActive(false);
-        }
+        Debug.Log("Package picked up!: " + sender.name + " " + data);
     }
 
-    private void activateRandom(List<GameObject> gameObjects)
+    public void packageDelivered(Component sender, object data)
     {
-        Debug.Log("Let's activate randomly: " + gameObjects[this.random.Next(0, 2)].name);
-    }
-
-    public void packagePickup()
-    {
-        Debug.Log("Package picked up!");
-    }
-
-    public void packageDelivered()
-    {
-        Debug.Log("Package delivered!");
+        Debug.Log("Package delivered!: " + sender.name + " " + data);
     }
 }

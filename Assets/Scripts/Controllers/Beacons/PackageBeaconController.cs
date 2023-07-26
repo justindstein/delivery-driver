@@ -9,6 +9,6 @@ public class PackagePickupController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        this.packagePickup.Raise();
+        this.packagePickup.Raise(this, null);
     }
 }
