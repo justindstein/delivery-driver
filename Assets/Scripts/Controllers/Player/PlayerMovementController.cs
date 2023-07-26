@@ -26,7 +26,6 @@ public class PlayerMovementController : MonoBehaviour
 
         if (movementInput != 0)
         {
-            //transform.Translate(new Vector3(0, (movementInput * MoveSpeed) * Time.deltaTime, 0), Space.Self);
             transform.Translate(0, movementInput * MoveSpeed * Time.deltaTime, 0);
         }
 
@@ -38,6 +37,5 @@ public class PlayerMovementController : MonoBehaviour
 
     private void FixedUpdate()
     {
-
     }
 }

@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,9 +5,7 @@ public class BeaconManager : MonoBehaviour
 {
     private List<GameObject> packageBeacons;
     private List<GameObject> deliveryBeacons;
-    private GameObject lastActiveBeacon;
-
-    //private HashSet<GameObject> packageBeaconsFoo;
+    //private GameObject lastActiveBeacon;
 
     public void Awake()
     {
@@ -25,7 +22,7 @@ public class BeaconManager : MonoBehaviour
     public void packagePickup(Component sender, object data)
     {
         Debug.Log("Package picked up!: " + sender.gameObject.name + " " + data + "contains?: " + this.packageBeacons.Contains(sender.gameObject));
-        this.lastActiveBeacon = sender.gameObject;
+        //this.lastActiveBeacon = sender.gameObject;
         sender.gameObject.SetActive(false);
         GameObjectUtil.ActivateRandom(this.deliveryBeacons);
     }
@@ -33,7 +30,7 @@ public class BeaconManager : MonoBehaviour
     public void packageDelivered(Component sender, object data)
     {
         Debug.Log("Package delivered!: " + sender.gameObject.name + " " + data);
-        this.lastActiveBeacon = sender.gameObject;
+        //this.lastActiveBeacon = sender.gameObject;
         sender.gameObject.SetActive(false);
         GameObjectUtil.ActivateRandom(this.packageBeacons);
     }
