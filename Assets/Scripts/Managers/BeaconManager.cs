@@ -29,10 +29,10 @@ public class BeaconManager : MonoBehaviour
         }
     }
 
-    //private void activateRandom(List<GameObject> gameObjects)
-    //{
-    //    Debug.Log("Let's activate randomly: " + gameObjects[this.random.Next(0, 2)].name);
-    //}
+    private void activateRandom(List<GameObject> gameObjects)
+    {
+        Debug.Log("Let's activate randomly: " + gameObjects[this.random.Next(0, 2)].name);
+    }
 
     public void packagePickup()
     {
