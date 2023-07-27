@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16e6c0ca77f1546c38dc76b1122ff6bc, type: 3}
-  m_Name: BeaconTrigger
+  m_Name: PackagePickup
   m_EditorClassIdentifier: 
