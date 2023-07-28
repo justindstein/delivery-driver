@@ -143,4 +143,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b0d27a6d36ab4624b958256d9f4b134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnPackagePickup: {fileID: 11400000, guid: 065b2ab1538d14074b062e6da78d966a, type: 2}
+  OnPackagePickup: {fileID: 11400000, guid: edf046c44a36e42099fffc761ff60e7b, type: 2}

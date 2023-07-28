@@ -1507,27 +1507,13 @@ GameObject:
   - component: {fileID: 49787031}
   - component: {fileID: 49787030}
   - component: {fileID: 49787029}
-  - component: {fileID: 49787028}
   m_Layer: 0
-  m_Name: BeaconSpawner7
-  m_TagString: DeliveryBeacon
+  m_Name: BeaconSpawnPoint7
+  m_TagString: BeaconSpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &49787028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 49787027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b36f555a19bf0446eae2cbe4519a2bea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnPackageDelivery: {fileID: 0}
 --- !u!61 &49787029
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4961,27 +4947,13 @@ GameObject:
   - component: {fileID: 450079467}
   - component: {fileID: 450079466}
   - component: {fileID: 450079465}
-  - component: {fileID: 450079464}
   m_Layer: 0
-  m_Name: BeaconSpawner5
-  m_TagString: DeliveryBeacon
+  m_Name: BeaconSpawnPoint5
+  m_TagString: BeaconSpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &450079464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 450079463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b36f555a19bf0446eae2cbe4519a2bea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnPackageDelivery: {fileID: 0}
 --- !u!61 &450079465
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5105,27 +5077,13 @@ GameObject:
   - component: {fileID: 465543188}
   - component: {fileID: 465543187}
   - component: {fileID: 465543186}
-  - component: {fileID: 465543185}
   m_Layer: 0
-  m_Name: BeaconSpawner4
-  m_TagString: DeliveryBeacon
+  m_Name: BeaconSpawnPoint4
+  m_TagString: BeaconSpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &465543185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 465543184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b36f555a19bf0446eae2cbe4519a2bea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnPackageDelivery: {fileID: 0}
 --- !u!61 &465543186
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5965,10 +5923,9 @@ GameObject:
   - component: {fileID: 566301238}
   - component: {fileID: 566301241}
   - component: {fileID: 566301240}
-  - component: {fileID: 566301239}
   m_Layer: 0
-  m_Name: BeaconSpawner1
-  m_TagString: DeliveryBeacon
+  m_Name: BeaconSpawnPoint1
+  m_TagString: BeaconSpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5988,19 +5945,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2064137332}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &566301239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 566301237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b36f555a19bf0446eae2cbe4519a2bea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnPackageDelivery: {fileID: 0}
 --- !u!61 &566301240
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6913,27 +6857,13 @@ GameObject:
   - component: {fileID: 619968736}
   - component: {fileID: 619968735}
   - component: {fileID: 619968734}
-  - component: {fileID: 619968733}
   m_Layer: 0
-  m_Name: BeaconSpawner3
-  m_TagString: DeliveryBeacon
+  m_Name: BeaconSpawnPoint3
+  m_TagString: BeaconSpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &619968733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 619968732}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b36f555a19bf0446eae2cbe4519a2bea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnPackageDelivery: {fileID: 0}
 --- !u!61 &619968734
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10013,27 +9943,13 @@ GameObject:
   - component: {fileID: 936002493}
   - component: {fileID: 936002492}
   - component: {fileID: 936002491}
-  - component: {fileID: 936002490}
   m_Layer: 0
-  m_Name: BeaconSpawner8
-  m_TagString: DeliveryBeacon
+  m_Name: BeaconSpawnPoint8
+  m_TagString: BeaconSpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &936002490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 936002489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b36f555a19bf0446eae2cbe4519a2bea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnPackageDelivery: {fileID: 0}
 --- !u!61 &936002491
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10157,27 +10073,13 @@ GameObject:
   - component: {fileID: 939483296}
   - component: {fileID: 939483295}
   - component: {fileID: 939483294}
-  - component: {fileID: 939483293}
   m_Layer: 0
-  m_Name: BeaconSpawner2
-  m_TagString: DeliveryBeacon
+  m_Name: BeaconSpawnPoint2
+  m_TagString: BeaconSpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &939483293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 939483292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b36f555a19bf0446eae2cbe4519a2bea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnPackageDelivery: {fileID: 0}
 --- !u!61 &939483294
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10301,27 +10203,13 @@ GameObject:
   - component: {fileID: 944073569}
   - component: {fileID: 944073568}
   - component: {fileID: 944073567}
-  - component: {fileID: 944073566}
   m_Layer: 0
-  m_Name: BeaconSpawner6
-  m_TagString: DeliveryBeacon
+  m_Name: BeaconSpawnPoint6
+  m_TagString: BeaconSpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &944073566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 944073565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b36f555a19bf0446eae2cbe4519a2bea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnPackageDelivery: {fileID: 0}
 --- !u!61 &944073567
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16233,27 +16121,13 @@ GameObject:
   - component: {fileID: 1477127373}
   - component: {fileID: 1477127372}
   - component: {fileID: 1477127371}
-  - component: {fileID: 1477127370}
   m_Layer: 0
-  m_Name: BeaconSpawner9
-  m_TagString: DeliveryBeacon
+  m_Name: BeaconSpawnPoint9
+  m_TagString: BeaconSpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1477127370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1477127369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b36f555a19bf0446eae2cbe4519a2bea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnPackageDelivery: {fileID: 0}
 --- !u!61 &1477127371
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24261,7 +24135,7 @@ GameObject:
   - component: {fileID: 2064137334}
   - component: {fileID: 2064137333}
   m_Layer: 0
-  m_Name: BeaconSpawner
+  m_Name: BeaconSpawnPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24303,7 +24177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fa84e010727249ca88d565563ce55b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 065b2ab1538d14074b062e6da78d966a, type: 2}
+  gameEvent: {fileID: 11400000, guid: edf046c44a36e42099fffc761ff60e7b, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:
@@ -24359,6 +24233,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b0a5c94395b645ef9e77fa363f94c7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickupBeaconPrefab: {fileID: 8993741148307703164, guid: 6a5d3fc0bf4394fd084fe6aa84087b1d, type: 3}
+  DeliveryBeaconPrefab: {fileID: 8993741148307703164, guid: eb3ec21c95dbd4a4c972d66a0f263fb0, type: 3}
 --- !u!1 &2070822551
 GameObject:
   m_ObjectHideFlags: 0

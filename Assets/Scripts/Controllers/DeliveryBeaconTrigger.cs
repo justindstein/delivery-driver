@@ -7,6 +7,7 @@ public class DeliveryBeaconTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("DeliveryBeaconTrigger");
         this.OnPackageDelivery.Raise(this, null);
     }
 }

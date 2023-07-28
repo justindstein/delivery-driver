@@ -25,4 +25,11 @@ public class GameObjectUtil : ScriptableObject
         //int randomIndex = random.Next(0, gameObjects.Count);
         // TODO
     }
+
+    // TODO temporary
+    public static GameObject GetRandomElement(List<GameObject> gameObjects)
+    {
+        int randomIndex = random.Next(0, gameObjects.Count);
+        return gameObjects[randomIndex];
+    }
 }
