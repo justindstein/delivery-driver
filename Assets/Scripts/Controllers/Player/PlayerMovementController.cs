@@ -15,27 +15,22 @@ public class PlayerMovementController : MonoBehaviour
     private float movementInput;
     private float steerInput;
 
-    void Start()
-    {
-    }
-
     void Update()
     {
         this.movementInput = Input.GetAxis(VERTICAL_AXIS);
         this.steerInput = Input.GetAxis(HORIZONTAL_AXIS);
-
-        if (movementInput != 0)
-        {
-            transform.Translate(0, movementInput * MoveSpeed * Time.deltaTime, 0);
-        }
-
-        if (steerInput != 0)
-        {
-            transform.Rotate(0, 0, steerInput * SteerSpeed * STEER_SPEED_DIRECTION * Time.deltaTime);
-        }
     }
 
     private void FixedUpdate()
     {
+        if (this.movementInput != 0)
+        {
+            transform.Translate(0, movementInput * MoveSpeed * Time.fixedDeltaTime, 0);
+        }
+
+        if (this.steerInput != 0)
+        {
+            transform.Rotate(0, 0, steerInput * SteerSpeed * STEER_SPEED_DIRECTION * Time.fixedDeltaTime);
+        }
     }
 }

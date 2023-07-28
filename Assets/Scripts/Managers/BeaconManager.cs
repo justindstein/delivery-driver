@@ -7,14 +7,14 @@ public class BeaconManager : MonoBehaviour
     public GameObject DeliveryBeaconPrefab;
 
     private List<GameObject> beaconSpawns;
-    private GameObject currentBeacon;
+    private GameObject activeBeacon;
 
     public void Awake()
     {
         this.beaconSpawns = new List<GameObject>(GameObject.FindGameObjectsWithTag("BeaconSpawnPoint"));
         GameObject randomBeaconSpawn = GameObjectUtil.GetRandomElement(this.beaconSpawns);
 
-        this.currentBeacon = this.spawnBeacon(this.PickupBeaconPrefab, randomBeaconSpawn.transform.position, randomBeaconSpawn.transform.rotation);
+        this.activeBeacon = this.spawnBeacon(this.PickupBeaconPrefab, randomBeaconSpawn.transform.position, randomBeaconSpawn.transform.rotation);
     }
 
     /*
@@ -26,19 +26,24 @@ public class BeaconManager : MonoBehaviour
         return instance;
     }
 
-    public void packagePickup(Component sender, object data)
+    public void PackagePickup(Component sender, object data)
     {
-        Debug.Log("packagePickup!");
-        Destroy(this.currentBeacon);
+        Debug.Log(string.Format("packagePickup: [sender: {0}] [dataL {1}]", sender, data));
+        Destroy(this.activeBeacon);
         GameObject randomBeaconSpawn = GameObjectUtil.GetRandomElement(this.beaconSpawns);
-        this.currentBeacon = this.spawnBeacon(this.DeliveryBeaconPrefab, randomBeaconSpawn.transform.position, randomBeaconSpawn.transform.rotation);
+        this.activeBeacon = this.spawnBeacon(this.DeliveryBeaconPrefab, randomBeaconSpawn.transform.position, randomBeaconSpawn.transform.rotation);
     }
 
-    public void packageDelivered(Component sender, object data)
+    public void PackageDelivered(Component sender, object data)
     {
-        Debug.Log("packageDelivered!");
-        Destroy(this.currentBeacon);
+        Debug.Log(string.Format("packageDelivered: [sender: {0}] [dataL {1}]", sender, data));
+        Destroy(this.activeBeacon);
         GameObject randomBeaconSpawn = GameObjectUtil.GetRandomElement(this.beaconSpawns);
-        this.currentBeacon = this.spawnBeacon(this.PickupBeaconPrefab, randomBeaconSpawn.transform.position, randomBeaconSpawn.transform.rotation);
+        this.activeBeacon = this.spawnBeacon(this.PickupBeaconPrefab, randomBeaconSpawn.transform.position, randomBeaconSpawn.transform.rotation);
+    }
+
+    public GameObject GetActiveBeacon()
+    {
+        return this.activeBeacon;
     }
 }
