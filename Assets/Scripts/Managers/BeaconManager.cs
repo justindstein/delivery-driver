@@ -7,18 +7,19 @@ public class BeaconManager : MonoBehaviour
     public GameObject DeliveryBeaconPrefab;
 
     private List<GameObject> beaconSpawns;
-    private GameObject activeBeacon;
+    private GameObject activeBeaconSpawn;
+    private GameObject instantiatedBeacon;
 
     public void Awake()
     {
         this.beaconSpawns = new List<GameObject>(GameObject.FindGameObjectsWithTag("BeaconSpawnPoint"));
-        GameObject randomBeaconSpawn = CollectionUtil.GetRandomElement(this.beaconSpawns);
+        this.activeBeaconSpawn = CollectionUtil.GetRandomElement(this.beaconSpawns);
 
-        this.activeBeacon = this.spawnBeacon(this.PickupBeaconPrefab, randomBeaconSpawn.transform.position, randomBeaconSpawn.transform.rotation);
+        this.instantiatedBeacon = this.spawnBeacon(this.PickupBeaconPrefab, this.activeBeaconSpawn.transform.position, this.activeBeaconSpawn.transform.rotation);
     }
 
     /*
-     * Instantiates a beacon of type gameObject.
+     * Instantiates a new beacon of type gameObject at the provided position and rotation.
      */
     private GameObject spawnBeacon(GameObject gameObject, Vector3 position, Quaternion rotation)
     {
@@ -26,24 +27,33 @@ public class BeaconManager : MonoBehaviour
         return instance;
     }
 
+    /// <summary>
+    /// Destroys existing instantiatedBeacon, randomly chooses a beacon from the set of beaconSpawns excluding the location of instantedBeacon,
+    /// and instantiates a new DeliveryBeaconPrefab.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="data"></param>
     public void PackagePickup(Component sender, object data)
     {
-        Debug.Log(string.Format("packagePickup: [sender: {0}] [dataL {1}]", sender, data));
-        Destroy(this.activeBeacon);
-        GameObject randomBeaconSpawn = CollectionUtil.GetRandomElement(this.beaconSpawns);
-        this.activeBeacon = this.spawnBeacon(this.DeliveryBeaconPrefab, randomBeaconSpawn.transform.position, randomBeaconSpawn.transform.rotation);
+        Debug.Log(string.Format("BeaconManager.PackagePickup: [sender: {0}] [dataL {1}]", sender, data));
+        Destroy(this.instantiatedBeacon);
+
+        this.activeBeaconSpawn = CollectionUtil.GetRandomElementExcluding(this.beaconSpawns, new List<GameObject>() { this.activeBeaconSpawn });
+        this.instantiatedBeacon = this.spawnBeacon(this.DeliveryBeaconPrefab, this.activeBeaconSpawn.transform.position, this.activeBeaconSpawn.transform.rotation);
     }
 
+    /// <summary>
+    /// Destroys existing instantiatedBeacon, randomly chooses a beacon from the set of beaconSpawns excluding the location of instantedBeacon,
+    /// and instantiates a new PickupBeaconPrefab.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="data"></param>
     public void PackageDelivered(Component sender, object data)
     {
-        Debug.Log(string.Format("packageDelivered: [sender: {0}] [dataL {1}]", sender, data));
-        Destroy(this.activeBeacon);
-        GameObject randomBeaconSpawn = CollectionUtil.GetRandomElement(this.beaconSpawns);
-        this.activeBeacon = this.spawnBeacon(this.PickupBeaconPrefab, randomBeaconSpawn.transform.position, randomBeaconSpawn.transform.rotation);
-    }
+        Debug.Log(string.Format("BeaconManager.PackageDelivered: [sender: {0}] [dataL {1}]", sender, data));
+        Destroy(this.instantiatedBeacon);
 
-    public GameObject GetActiveBeacon()
-    {
-        return this.activeBeacon;
+        this.activeBeaconSpawn = CollectionUtil.GetRandomElementExcluding(this.beaconSpawns, new List<GameObject>() { this.activeBeaconSpawn });
+        this.instantiatedBeacon = this.spawnBeacon(this.PickupBeaconPrefab, this.activeBeaconSpawn.transform.position, this.activeBeaconSpawn.transform.rotation);
     }
 }

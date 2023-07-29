@@ -1216,6 +1216,8 @@ GameObject:
   - component: {fileID: 39926288}
   - component: {fileID: 39926287}
   - component: {fileID: 39926285}
+  - component: {fileID: 39926290}
+  - component: {fileID: 39926289}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1376,6 +1378,62 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.46, y: 3.22}
   m_EdgeRadius: 0
+--- !u!114 &39926289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39926280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa84e010727249ca88d565563ce55b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 065b2ab1538d14074b062e6da78d966a, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 39926285}
+        m_TargetAssemblyTypeName: PlayerController, Scripts
+        m_MethodName: PackageDelivered
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &39926290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39926280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa84e010727249ca88d565563ce55b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: edf046c44a36e42099fffc761ff60e7b, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 39926285}
+        m_TargetAssemblyTypeName: PlayerController, Scripts
+        m_MethodName: PackagePickup
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &45984635
 GameObject:
   m_ObjectHideFlags: 0
