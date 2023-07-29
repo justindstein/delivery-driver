@@ -12,7 +12,7 @@ public class BeaconManager : MonoBehaviour
     public void Awake()
     {
         this.beaconSpawns = new List<GameObject>(GameObject.FindGameObjectsWithTag("BeaconSpawnPoint"));
-        GameObject randomBeaconSpawn = GameObjectUtil.GetRandomElement(this.beaconSpawns);
+        GameObject randomBeaconSpawn = CollectionUtil.GetRandomElement(this.beaconSpawns);
 
         this.activeBeacon = this.spawnBeacon(this.PickupBeaconPrefab, randomBeaconSpawn.transform.position, randomBeaconSpawn.transform.rotation);
     }
@@ -30,7 +30,7 @@ public class BeaconManager : MonoBehaviour
     {
         Debug.Log(string.Format("packagePickup: [sender: {0}] [dataL {1}]", sender, data));
         Destroy(this.activeBeacon);
-        GameObject randomBeaconSpawn = GameObjectUtil.GetRandomElement(this.beaconSpawns);
+        GameObject randomBeaconSpawn = CollectionUtil.GetRandomElement(this.beaconSpawns);
         this.activeBeacon = this.spawnBeacon(this.DeliveryBeaconPrefab, randomBeaconSpawn.transform.position, randomBeaconSpawn.transform.rotation);
     }
 
@@ -38,7 +38,7 @@ public class BeaconManager : MonoBehaviour
     {
         Debug.Log(string.Format("packageDelivered: [sender: {0}] [dataL {1}]", sender, data));
         Destroy(this.activeBeacon);
-        GameObject randomBeaconSpawn = GameObjectUtil.GetRandomElement(this.beaconSpawns);
+        GameObject randomBeaconSpawn = CollectionUtil.GetRandomElement(this.beaconSpawns);
         this.activeBeacon = this.spawnBeacon(this.PickupBeaconPrefab, randomBeaconSpawn.transform.position, randomBeaconSpawn.transform.rotation);
     }
 
