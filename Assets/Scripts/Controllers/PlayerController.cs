@@ -6,9 +6,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float MoveSpeed;
 
     private SpriteRenderer spriteRenderer;
-    private Color defaultColor;
+    private Color32 defaultColor;
 
-    private readonly Color COLOR_GREEN = Color.green;
+    private readonly Color32 COLOR_GREEN = Color.green;
     private const string HORIZONTAL_AXIS = "Horizontal";
     private const string VERTICAL_AXIS = "Vertical";
     private const float STEER_SPEED_DIRECTION = -1f;
