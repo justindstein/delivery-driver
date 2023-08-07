@@ -9,15 +9,13 @@ public class BeaconManager : MonoBehaviour
     public GameObject DeliveryBeaconTrigger;
 
     private List<GameObject> beaconSpawns;
-    private GameObject activeBeaconSpawn; // TODO: change to better name: randomBeaconSpawn
-    private GameObject instantiatedBeacon;
 
     public void Awake()
     {
         this.beaconSpawns = new List<GameObject>(GameObject.FindGameObjectsWithTag("BeaconSpawnPoint"));
-        this.activeBeaconSpawn = CollectionUtil.GetRandomElement(this.beaconSpawns);
+        GameObject randomBeaconSpawn = CollectionUtil.GetRandomElement(this.beaconSpawns);
 
-        this.instantiatedBeacon = this.spawnBeacon(this.PickupBeaconTrigger, this.activeBeaconSpawn);
+        this.spawnBeacon(this.PickupBeaconTrigger, randomBeaconSpawn);
     }
 
     /*
@@ -40,15 +38,9 @@ public class BeaconManager : MonoBehaviour
     {
         Debug.Log(string.Format("BeaconManager.PackagePickup: [sender: {0}] [dataL {1}]", sender, data));
 
-        ///
-        Debug.Log(string.Format("PackagePickup getParentGameObject [parentGameObject {0}]", sender.GetComponent<BeaconTrigger>().getParentGameObject()));
-        ///
-
-
-        Destroy(this.instantiatedBeacon);
-
-        this.activeBeaconSpawn = CollectionUtil.GetRandomElementExcluding(this.beaconSpawns, new List<GameObject>() { this.activeBeaconSpawn });
-        this.instantiatedBeacon = this.spawnBeacon(this.DeliveryBeaconTrigger, this.activeBeaconSpawn);
+        Destroy(sender.gameObject);
+        GameObject randomBeaconSpawn = CollectionUtil.GetRandomElementExcluding(this.beaconSpawns, new List<GameObject>() { sender.GetComponent<BeaconTrigger>().getParentGameObject() });
+        this.spawnBeacon(this.DeliveryBeaconTrigger, randomBeaconSpawn);
     }
 
     /// <summary>
@@ -61,14 +53,8 @@ public class BeaconManager : MonoBehaviour
     {
         Debug.Log(string.Format("BeaconManager.PackageDelivered: [sender: {0}] [dataL {1}]", sender, data));
 
-        ///
-        Debug.Log(string.Format("PackagePickup getParentGameObject [parentGameObject {0}]", sender.GetComponent<BeaconTrigger>().getParentGameObject()));
-        ///
-
-
-        Destroy(this.instantiatedBeacon);
-
-        this.activeBeaconSpawn = CollectionUtil.GetRandomElementExcluding(this.beaconSpawns, new List<GameObject>() { this.activeBeaconSpawn });
-        this.instantiatedBeacon = this.spawnBeacon(this.PickupBeaconTrigger, this.activeBeaconSpawn);
+        Destroy(sender.gameObject);
+        GameObject randomBeaconSpawn = CollectionUtil.GetRandomElementExcluding(this.beaconSpawns, new List<GameObject>() { sender.GetComponent<BeaconTrigger>().getParentGameObject() });
+        this.spawnBeacon(this.PickupBeaconTrigger, randomBeaconSpawn);
     }
 }
