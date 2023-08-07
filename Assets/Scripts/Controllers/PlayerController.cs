@@ -43,13 +43,13 @@ public class PlayerController : MonoBehaviour
 
     public void PackagePickup(Component sender, object data)
     {
-        Debug.Log(string.Format("PlayerController.PackagePickup: [sender: {0}] [dataL {1}]", sender, data));
+        //Debug.Log(string.Format("PlayerController.PackagePickup: [sender: {0}] [dataL {1}]", sender, data));
         this.spriteRenderer.color = this.COLOR_GREEN;
     }
 
     public void PackageDelivered(Component sender, object data)
     {
-        Debug.Log(string.Format("PlayerController.PackageDelivered: [sender: {0}] [dataL {1}]", sender, data));
+        //Debug.Log(string.Format("PlayerController.PackageDelivered: [sender: {0}] [dataL {1}]", sender, data));
         this.spriteRenderer.color = this.defaultColor;
     }
 }

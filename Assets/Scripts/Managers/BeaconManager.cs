@@ -15,15 +15,15 @@ public class BeaconManager : MonoBehaviour
         this.beaconSpawns = new List<GameObject>(GameObject.FindGameObjectsWithTag("BeaconSpawnPoint"));
         this.activeBeaconSpawn = CollectionUtil.GetRandomElement(this.beaconSpawns);
 
-        this.instantiatedBeacon = this.spawnBeacon(this.PickupBeaconPrefab, this.activeBeaconSpawn.transform.position, this.activeBeaconSpawn.transform.rotation);
+        this.instantiatedBeacon = this.spawnBeacon(this.PickupBeaconPrefab, this.activeBeaconSpawn);
     }
 
     /*
      * Instantiates a new beacon of type gameObject at the provided position and rotation.
      */
-    private GameObject spawnBeacon(GameObject gameObject, Vector3 position, Quaternion rotation)
+    private GameObject spawnBeacon(GameObject gameObject, GameObject activeBeaconSpawn)
     {
-        GameObject instance = Instantiate(gameObject, position, transform.rotation);
+        GameObject instance = Instantiate(gameObject, activeBeaconSpawn.transform.position, activeBeaconSpawn.transform.rotation);
         return instance;
     }
 
@@ -39,7 +39,7 @@ public class BeaconManager : MonoBehaviour
         Destroy(this.instantiatedBeacon);
 
         this.activeBeaconSpawn = CollectionUtil.GetRandomElementExcluding(this.beaconSpawns, new List<GameObject>() { this.activeBeaconSpawn });
-        this.instantiatedBeacon = this.spawnBeacon(this.DeliveryBeaconPrefab, this.activeBeaconSpawn.transform.position, this.activeBeaconSpawn.transform.rotation);
+        this.instantiatedBeacon = this.spawnBeacon(this.DeliveryBeaconPrefab, this.activeBeaconSpawn);
     }
 
     /// <summary>
@@ -54,6 +54,6 @@ public class BeaconManager : MonoBehaviour
         Destroy(this.instantiatedBeacon);
 
         this.activeBeaconSpawn = CollectionUtil.GetRandomElementExcluding(this.beaconSpawns, new List<GameObject>() { this.activeBeaconSpawn });
-        this.instantiatedBeacon = this.spawnBeacon(this.PickupBeaconPrefab, this.activeBeaconSpawn.transform.position, this.activeBeaconSpawn.transform.rotation);
+        this.instantiatedBeacon = this.spawnBeacon(this.PickupBeaconPrefab, this.activeBeaconSpawn);
     }
 }
