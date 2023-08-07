@@ -6921,7 +6921,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &619968734
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24192,6 +24192,8 @@ GameObject:
   - component: {fileID: 2064137335}
   - component: {fileID: 2064137334}
   - component: {fileID: 2064137333}
+  - component: {fileID: 2064137337}
+  - component: {fileID: 2064137336}
   m_Layer: 0
   m_Name: BeaconSpawnPoints
   m_TagString: Untagged
@@ -24293,6 +24295,64 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickupBeaconTriggerPrefab: {fileID: 8993741148307703164, guid: 6a5d3fc0bf4394fd084fe6aa84087b1d, type: 3}
   DeliveryBeaconTriggerPrefab: {fileID: 8993741148307703164, guid: eb3ec21c95dbd4a4c972d66a0f263fb0, type: 3}
+  SpeedUpBeaconTriggerPrefab: {fileID: 8993741148307703164, guid: 251c160f64745406196f1b4a30d49543, type: 3}
+  SpeedDownBeaconTriggerPrefab: {fileID: 8993741148307703164, guid: cc7f8da5b21de4dba96fc95ac066fc6b, type: 3}
+--- !u!114 &2064137336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064137330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa84e010727249ca88d565563ce55b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: ab105dff698d148bdae646a12c9179d6, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2064137335}
+        m_TargetAssemblyTypeName: BeaconManager, Scripts
+        m_MethodName: SpeedUp
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2064137337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064137330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa84e010727249ca88d565563ce55b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: b702ccf3ad38943fa9c067ac52f3fcc8, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2064137335}
+        m_TargetAssemblyTypeName: BeaconManager, Scripts
+        m_MethodName: SpeedDown
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2070822551
 GameObject:
   m_ObjectHideFlags: 0

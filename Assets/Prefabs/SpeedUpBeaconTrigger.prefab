@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8909860087075626056}
   - component: {fileID: 6019791093956997399}
   - component: {fileID: 8555141850936202316}
-  - component: {fileID: -508329785937746219}
+  - component: {fileID: 3388445800669528331}
   m_Layer: 0
-  m_Name: PickupBeaconTrigger
+  m_Name: SpeedUpBeaconTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,8 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 1, b: 0, a: 1}
+  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+  m_Color: {r: 0.121395506, g: 0.35348192, b: 0.8301887, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-508329785937746219
+--- !u!114 &3388445800669528331
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8993741148307703164}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b0d27a6d36ab4624b958256d9f4b134, type: 3}
+  m_Script: {fileID: 11500000, guid: d6d5bdb26e56a40aa8c41be9683aa880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnPackagePickup: {fileID: 11400000, guid: edf046c44a36e42099fffc761ff60e7b, type: 2}
+  OnSpeedUp: {fileID: 11400000, guid: ab105dff698d148bdae646a12c9179d6, type: 2}
