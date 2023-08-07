@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PickupBeaconTrigger : MonoBehaviour
+public class PickupBeaconTrigger : BeaconTrigger
 {
     [Header("Events")]
     public GameEvent OnPackagePickup;

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DeliveryBeaconTrigger : MonoBehaviour
+public class DeliveryBeaconTrigger : BeaconTrigger
 {
     [Header("Events")]
     public GameEvent OnPackageDelivery;
