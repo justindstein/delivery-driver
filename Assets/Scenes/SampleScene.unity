@@ -24291,8 +24291,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b0a5c94395b645ef9e77fa363f94c7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PickupBeaconTrigger: {fileID: 8993741148307703164, guid: 6a5d3fc0bf4394fd084fe6aa84087b1d, type: 3}
-  DeliveryBeaconTrigger: {fileID: 8993741148307703164, guid: eb3ec21c95dbd4a4c972d66a0f263fb0, type: 3}
+  PickupBeaconTriggerPrefab: {fileID: 8993741148307703164, guid: 6a5d3fc0bf4394fd084fe6aa84087b1d, type: 3}
+  DeliveryBeaconTriggerPrefab: {fileID: 8993741148307703164, guid: eb3ec21c95dbd4a4c972d66a0f263fb0, type: 3}
 --- !u!1 &2070822551
 GameObject:
   m_ObjectHideFlags: 0
