@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8555141850936202316}
   - component: {fileID: 3125958083030575549}
   m_Layer: 0
-  m_Name: DeliveryBeacon
+  m_Name: DeliveryBeaconTrigger
   m_TagString: DeliveryBeacon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

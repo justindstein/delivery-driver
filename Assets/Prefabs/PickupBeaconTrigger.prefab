@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8555141850936202316}
   - component: {fileID: 6915392135808424382}
   m_Layer: 0
-  m_Name: PickupBeacon
+  m_Name: PickupBeaconTrigger
   m_TagString: DeliveryBeacon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

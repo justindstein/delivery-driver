@@ -15,6 +15,9 @@ public class BeaconManager : MonoBehaviour
         this.beaconSpawns = new List<GameObject>(GameObject.FindGameObjectsWithTag("BeaconSpawnPoint"));
         this.activeBeaconSpawn = CollectionUtil.GetRandomElement(this.beaconSpawns);
 
+        Debug.Log("Type: " + PickupBeaconPrefab.GetType().ToString());
+        Debug.Log("Type: " + DeliveryBeaconPrefab.GetType().ToString());
+
         this.instantiatedBeacon = this.spawnBeacon(this.PickupBeaconPrefab, this.activeBeaconSpawn);
     }
 
