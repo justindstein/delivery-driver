@@ -9,28 +9,35 @@ public class BeaconManager : MonoBehaviour
     public GameObject SpeedDownBeaconTriggerPrefab;
 
     private List<GameObject> beaconSpawners;
+    private HashSet<GameObject> activeBeaconSpawners;
 
     public void Awake()
     {
         this.beaconSpawners = new List<GameObject>(GameObject.FindGameObjectsWithTag("BeaconSpawnPoint"));
+        this.activeBeaconSpawners = new HashSet<GameObject>();
 
         // Spawn a PickupBeacon
         GameObject randomBeaconSpawner = CollectionUtil.GetRandomElement(this.beaconSpawners);
-        this.spawnBeacon(this.PickupBeaconTriggerPrefab, randomBeaconSpawner);
+        this.spawnBeacon(this.PickupBeaconTriggerPrefab, this.activeBeaconSpawners, randomBeaconSpawner);
 
         // Spawn a random speedup/speeddown
-        this.spawnBeacon(this.PickupBeaconTriggerPrefab, CollectionUtil.GetRandomElement(this.beaconSpawners));
-
+        //this.spawnBeacon(this.PickupBeaconTriggerPrefab, this.activeBeaconSpawners, CollectionUtil.GetRandomElement(this.beaconSpawners));
     }
 
     /*
      * Instantiates a new beacon of type gameObject at the provided position and rotation.
      */
-    private GameObject spawnBeacon(GameObject gameObjectTemplate, GameObject activeBeaconSpawn)
+    private void spawnBeacon(GameObject gameObjectTemplate, HashSet<GameObject> activeBeaconSpawners, GameObject beaconSpawner) // TODO: lets call spawns->spanwers
     {
-        GameObject instance = Instantiate(gameObjectTemplate, activeBeaconSpawn.transform.position, activeBeaconSpawn.transform.rotation);
-        instance.GetComponent<BeaconTrigger>().setParentGameObject(activeBeaconSpawn);
-        return instance;
+        GameObject instance = Instantiate(gameObjectTemplate, beaconSpawner.transform.position, beaconSpawner.transform.rotation);
+        instance.GetComponent<BeaconTrigger>().setParentGameObject(beaconSpawner);
+        activeBeaconSpawners.Add(beaconSpawner);
+    }
+
+    private void despawnBeacon(HashSet<GameObject> activeBeaconSpawners, Component sender)
+    {
+        Destroy(sender.gameObject);
+        activeBeaconSpawners.Remove(sender.GetComponent<BeaconTrigger>().getParentGameObject());
     }
 
     /// <summary>
@@ -43,10 +50,12 @@ public class BeaconManager : MonoBehaviour
     {
         Debug.Log(string.Format("BeaconManager.PackagePickup: [sender: {0}] [dataL {1}]", sender, data));
 
-        // TODO: make sure cleanup happens after new instantization
-        Destroy(sender.gameObject);
-        GameObject randomBeaconSpawner = CollectionUtil.GetRandomElementExcluding(this.beaconSpawners, new List<GameObject>() { sender.GetComponent<BeaconTrigger>().getParentGameObject() });
-        this.spawnBeacon(this.DeliveryBeaconTriggerPrefab, randomBeaconSpawner);
+        // Spawn new DeliveryBeacon
+        GameObject randomBeaconSpawner = CollectionUtil.GetRandomElementExcluding(this.beaconSpawners, this.activeBeaconSpawners);
+        this.spawnBeacon(this.DeliveryBeaconTriggerPrefab, this.activeBeaconSpawners, randomBeaconSpawner);
+
+        // Despawn sender PickupBeacon
+        this.despawnBeacon(this.activeBeaconSpawners, sender);
     }
 
     /// <summary>
@@ -59,10 +68,12 @@ public class BeaconManager : MonoBehaviour
     {
         Debug.Log(string.Format("BeaconManager.PackageDelivered: [sender: {0}] [dataL {1}]", sender, data));
 
-        // TODO: make sure cleanup happens after new instantization
-        Destroy(sender.gameObject);
-        GameObject randomBeaconSpawner = CollectionUtil.GetRandomElementExcluding(this.beaconSpawners, new List<GameObject>() { sender.GetComponent<BeaconTrigger>().getParentGameObject() });
-        this.spawnBeacon(this.PickupBeaconTriggerPrefab, randomBeaconSpawner);
+        // Spawn new PickupBeacon
+        GameObject randomBeaconSpawner = CollectionUtil.GetRandomElementExcluding(this.beaconSpawners, this.activeBeaconSpawners);
+        this.spawnBeacon(this.PickupBeaconTriggerPrefab, this.activeBeaconSpawners, randomBeaconSpawner);
+
+        // Despawn sender DeliveryBeacon
+        this.despawnBeacon(this.activeBeaconSpawners, sender);
     }
 
     public void SpeedDown(Component sender, object data)
