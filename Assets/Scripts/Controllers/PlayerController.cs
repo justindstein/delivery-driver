@@ -60,11 +60,15 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log(string.Format("PlayerController.SpeedUp: [sender: {0}] [dataL {1}]", sender, data));
         this.speedModifier += 0.25f;
+        // TODO: Increase this modifier to 1.5x or 2x, schedule a job to end the upgrade after 30s or so.
+        // If bonus is already active, extend it. If opposing bonus is active, remove it.
     }
 
     public void SpeedDown(Component sender, object data)
     {
         Debug.Log(string.Format("PlayerController.SpeedDown: [sender: {0}] [dataL {1}]", sender, data));
         this.speedModifier -= 0.25f;
+        // TODO: Increase this modifier to 1.5x or 2x, schedule a job to end the upgrade after 30s or so.
+        // If bonus is already active, extend it. If opposing bonus is active, remove it.
     }
 }

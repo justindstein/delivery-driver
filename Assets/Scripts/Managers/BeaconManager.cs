@@ -20,14 +20,14 @@ public class BeaconManager : MonoBehaviour
         // Spawn a PickupBeacon
         this.spawnBeacon(this.PickupBeaconTriggerPrefab, this.beaconSpawners, this.activeBeaconSpawners);
 
-        // TODO: randomly choose between speedup/speeddown
-        // Spawn a SpeedUp/SpeedDown
-        this.spawnBeacon(this.SpeedUpBeaconTriggerPrefab, this.beaconSpawners, this.activeBeaconSpawners);
+        // Spawn a SpeedUpBeacon/SpeedDownBeacon
+        spawnRandomBeacon(new List<GameObject>() { SpeedUpBeaconTriggerPrefab, SpeedDownBeaconTriggerPrefab }, this.beaconSpawners, this.activeBeaconSpawners);
     }
 
     /*
      * Instantiates a new beacon of type gameObject at the provided position and rotation.
      */
+    // TODO: syncronize across all 3 methods
     [MethodImpl(MethodImplOptions.Synchronized)]
     private void spawnBeacon(GameObject gameObjectTemplate, List<GameObject> beaconSpawners, HashSet<GameObject> activeBeaconSpawners)
     {
@@ -38,11 +38,20 @@ public class BeaconManager : MonoBehaviour
         instance.GetComponent<BeaconTrigger>().setParentGameObject(randomBeaconSpawner);
     }
 
+    // TODO: syncronize across all 3 methods
     [MethodImpl(MethodImplOptions.Synchronized)]
     private void despawnBeacon(HashSet<GameObject> activeBeaconSpawners, Component sender)
     {
         Destroy(sender.gameObject);
         activeBeaconSpawners.Remove(sender.GetComponent<BeaconTrigger>().getParentGameObject());
+    }
+
+    // TODO: syncronize across all 3 methods
+    [MethodImpl(MethodImplOptions.Synchronized)]
+    private void spawnRandomBeacon(List<GameObject> gameObjectTemplates, List<GameObject> beaconSpawners, HashSet<GameObject> activeBeaconSpawners)
+    {
+        GameObject randomGameObjectTemplate = CollectionUtil.GetRandomElement(gameObjectTemplates);
+        this.spawnBeacon(randomGameObjectTemplate, beaconSpawners, activeBeaconSpawners);
     }
 
     /// <summary>
@@ -82,10 +91,22 @@ public class BeaconManager : MonoBehaviour
     public void SpeedDown(Component sender, object data)
     {
         Debug.Log(string.Format("BeaconManager.SpeedDown: [sender: {0}] [dataL {1}]", sender, data));
+
+        // Spawn a SpeedUpBeacon/SpeedDownBeacon
+        spawnRandomBeacon(new List<GameObject>() { SpeedUpBeaconTriggerPrefab, SpeedDownBeaconTriggerPrefab }, this.beaconSpawners, this.activeBeaconSpawners);
+
+        // Despawn sender DeliveryBeacon
+        this.despawnBeacon(this.activeBeaconSpawners, sender);
     }
 
     public void SpeedUp(Component sender, object data)
     {
         Debug.Log(string.Format("BeaconManager.SpeedUp: [sender: {0}] [dataL {1}]", sender, data));
+
+        // Spawn a SpeedUpBeacon/SpeedDownBeacon
+        spawnRandomBeacon(new List<GameObject>() { SpeedUpBeaconTriggerPrefab, SpeedDownBeaconTriggerPrefab }, this.beaconSpawners, this.activeBeaconSpawners);
+
+        // Despawn sender DeliveryBeacon
+        this.despawnBeacon(this.activeBeaconSpawners, sender);
     }
 }
