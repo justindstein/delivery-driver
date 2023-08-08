@@ -2,14 +2,13 @@ using UnityEngine;
 
 public class SpeedUpBeaconTrigger : BeaconTrigger
 {
-    // TODO: Should I extend BeaconTrigger?
-
     [Header("Events")]
     public GameEvent OnSpeedUp;
+    public GameEvent BeaconExpire;
 
     void Start()
     {
-        InvokeRepeating("LaunchProjectile", 2.0f, 0.3f);
+        InvokeRepeating("OnBeaconExpire", 0.0f, 15.0f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -17,9 +16,9 @@ public class SpeedUpBeaconTrigger : BeaconTrigger
         this.OnSpeedUp.Raise(this, null);
     }
 
-    void LaunchProjectile()
+    private void OnBeaconExpire()
     {
-        Debug.Log("LaunchProjectile");
+        this.BeaconExpire.Raise(this, null);
     }
 }
 

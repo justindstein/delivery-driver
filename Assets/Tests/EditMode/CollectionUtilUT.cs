@@ -42,9 +42,9 @@ public class CollectionUtilUT
     [TearDown]
     public void TearDown()
     {
-        // TODO
-        //this.emptyList = null;
-        //this.elements = null;
+        this.elements = null;
+        this.excludeElements = null;
+        this.excludeElementsFull = null;
     }
 
     [Test]
@@ -76,10 +76,6 @@ public class CollectionUtilUT
         Assert.IsTrue("4".Equals(elements[4]));
     }
 
-    //private List<string> excludedElementsFace;
-    //private List<string> excludedElementsTail;
-    //private List<string> excludedElementsFull;
-
     [Test]
     public void GetRandomElementExcluding_ElementsNull_ExcludeElementsNull()
     {
@@ -109,8 +105,6 @@ public class CollectionUtilUT
         Assert.IsTrue("4".Equals(elements[4]));
     }
 
-    ///
-
     [Test]
     public void GetRandomElementExcluding_ElementsNull_ExcludeElementsEmpty()
     {
@@ -139,8 +133,6 @@ public class CollectionUtilUT
         Assert.IsTrue("3".Equals(elements[3]));
         Assert.IsTrue("4".Equals(elements[4]));
     }
-
-    ///
 
     [Test]
     public void GetRandomElementExcluding_ElementsNull_ExcludeElements()

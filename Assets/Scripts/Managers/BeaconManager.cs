@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class BeaconManager : MonoBehaviour
@@ -17,23 +18,27 @@ public class BeaconManager : MonoBehaviour
         this.activeBeaconSpawners = new HashSet<GameObject>();
 
         // Spawn a PickupBeacon
-        GameObject randomBeaconSpawner = CollectionUtil.GetRandomElement(this.beaconSpawners);
-        this.spawnBeacon(this.PickupBeaconTriggerPrefab, this.activeBeaconSpawners, randomBeaconSpawner);
+        this.spawnBeacon(this.PickupBeaconTriggerPrefab, this.beaconSpawners, this.activeBeaconSpawners);
 
-        // Spawn a random speedup/speeddown
-        //this.spawnBeacon(this.PickupBeaconTriggerPrefab, this.activeBeaconSpawners, CollectionUtil.GetRandomElement(this.beaconSpawners));
+        // TODO: randomly choose between speedup/speeddown
+        // Spawn a SpeedUp/SpeedDown
+        this.spawnBeacon(this.SpeedUpBeaconTriggerPrefab, this.beaconSpawners, this.activeBeaconSpawners);
     }
 
     /*
      * Instantiates a new beacon of type gameObject at the provided position and rotation.
      */
-    private void spawnBeacon(GameObject gameObjectTemplate, HashSet<GameObject> activeBeaconSpawners, GameObject beaconSpawner) // TODO: lets call spawns->spanwers
+    [MethodImpl(MethodImplOptions.Synchronized)]
+    private void spawnBeacon(GameObject gameObjectTemplate, List<GameObject> beaconSpawners, HashSet<GameObject> activeBeaconSpawners)
     {
-        GameObject instance = Instantiate(gameObjectTemplate, beaconSpawner.transform.position, beaconSpawner.transform.rotation);
-        instance.GetComponent<BeaconTrigger>().setParentGameObject(beaconSpawner);
-        activeBeaconSpawners.Add(beaconSpawner);
+        GameObject randomBeaconSpawner = CollectionUtil.GetRandomElementExcluding(beaconSpawners, activeBeaconSpawners);
+        activeBeaconSpawners.Add(randomBeaconSpawner);
+
+        GameObject instance = Instantiate(gameObjectTemplate, randomBeaconSpawner.transform.position, randomBeaconSpawner.transform.rotation);
+        instance.GetComponent<BeaconTrigger>().setParentGameObject(randomBeaconSpawner);
     }
 
+    [MethodImpl(MethodImplOptions.Synchronized)]
     private void despawnBeacon(HashSet<GameObject> activeBeaconSpawners, Component sender)
     {
         Destroy(sender.gameObject);
@@ -51,8 +56,7 @@ public class BeaconManager : MonoBehaviour
         Debug.Log(string.Format("BeaconManager.PackagePickup: [sender: {0}] [dataL {1}]", sender, data));
 
         // Spawn new DeliveryBeacon
-        GameObject randomBeaconSpawner = CollectionUtil.GetRandomElementExcluding(this.beaconSpawners, this.activeBeaconSpawners);
-        this.spawnBeacon(this.DeliveryBeaconTriggerPrefab, this.activeBeaconSpawners, randomBeaconSpawner);
+        this.spawnBeacon(this.DeliveryBeaconTriggerPrefab, this.beaconSpawners, this.activeBeaconSpawners);
 
         // Despawn sender PickupBeacon
         this.despawnBeacon(this.activeBeaconSpawners, sender);
@@ -69,8 +73,7 @@ public class BeaconManager : MonoBehaviour
         Debug.Log(string.Format("BeaconManager.PackageDelivered: [sender: {0}] [dataL {1}]", sender, data));
 
         // Spawn new PickupBeacon
-        GameObject randomBeaconSpawner = CollectionUtil.GetRandomElementExcluding(this.beaconSpawners, this.activeBeaconSpawners);
-        this.spawnBeacon(this.PickupBeaconTriggerPrefab, this.activeBeaconSpawners, randomBeaconSpawner);
+        this.spawnBeacon(this.PickupBeaconTriggerPrefab, this.beaconSpawners, this.activeBeaconSpawners);
 
         // Despawn sender DeliveryBeacon
         this.despawnBeacon(this.activeBeaconSpawners, sender);

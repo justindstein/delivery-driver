@@ -30,7 +30,7 @@ public class CollectionUtil : ScriptableObject
     /// <param name="elements"></param>
     /// <param name="excludeElements"></param>
     /// <returns>A randomly selected element from a list or the default value of T if the list is null or empty</returns>
-    public static T GetRandomElementExcluding<T>(List<T> elements, ICollection<T> excludeElements)
+    public static T GetRandomElementExcluding<T>(List<T> elements, IReadOnlyCollection<T> excludeElements)
     {
         if (elements == null || elements.Count <= 0)
         {
