@@ -8,7 +8,9 @@ public class SpeedUpBeaconTrigger : BeaconTrigger
 
     void Start()
     {
-        InvokeRepeating("OnBeaconExpire", 0.0f, 15.0f);
+        // Note: parameters 'time' and 'repeatRate' not working as expected. 'time' influences
+        //frequency, and 'repeatRate' influences initial delay.
+        InvokeRepeating("OnBeaconExpire", 10.0f, 0.0f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

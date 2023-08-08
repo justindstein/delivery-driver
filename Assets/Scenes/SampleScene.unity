@@ -1629,7 +1629,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &49787029
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5069,7 +5069,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &450079465
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5199,7 +5199,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &465543186
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10065,7 +10065,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &936002491
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10325,7 +10325,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &944073567
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16243,7 +16243,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &1477127371
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24252,6 +24252,7 @@ GameObject:
   - component: {fileID: 2064137333}
   - component: {fileID: 2064137337}
   - component: {fileID: 2064137336}
+  - component: {fileID: 2064137338}
   m_Layer: 0
   m_Name: BeaconSpawnPoints
   m_TagString: Untagged
@@ -24402,6 +24403,34 @@ MonoBehaviour:
       - m_Target: {fileID: 2064137335}
         m_TargetAssemblyTypeName: BeaconManager, Scripts
         m_MethodName: SpeedDown
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2064137338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064137330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa84e010727249ca88d565563ce55b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 3cb6507352ff1489cadfa99344e7f47e, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2064137335}
+        m_TargetAssemblyTypeName: BeaconManager, Scripts
+        m_MethodName: BeaconExpired
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

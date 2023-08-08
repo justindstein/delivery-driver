@@ -109,4 +109,15 @@ public class BeaconManager : MonoBehaviour
         // Despawn sender DeliveryBeacon
         this.despawnBeacon(this.activeBeaconSpawners, sender);
     }
+
+    public void BeaconExpired(Component sender, object data)
+    {
+        Debug.Log(string.Format("BeaconManager.OnBeaconExpire: [sender: {0}] [dataL {1}]", sender, data));
+
+        // Spawn a SpeedUpBeacon/SpeedDownBeacon
+        spawnRandomBeacon(new List<GameObject>() { SpeedUpBeaconTriggerPrefab, SpeedDownBeaconTriggerPrefab }, this.beaconSpawners, this.activeBeaconSpawners);
+
+        // Despawn sender DeliveryBeacon
+        this.despawnBeacon(this.activeBeaconSpawners, sender);
+    }
 }
