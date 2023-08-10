@@ -133,5 +133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a5532680335480c8ae7fc1ee0fcb05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BeaconExpiry: 10
   OnSpeedDown: {fileID: 11400000, guid: b702ccf3ad38943fa9c067ac52f3fcc8, type: 2}
   BeaconExpire: {fileID: 11400000, guid: 3cb6507352ff1489cadfa99344e7f47e, type: 2}

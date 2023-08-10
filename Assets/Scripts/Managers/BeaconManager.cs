@@ -114,13 +114,14 @@ public class BeaconManager : MonoBehaviour
         activeBeaconSpawners.Add(randomBeaconSpawner);
 
         GameObject instance = Instantiate(gameObjectTemplate, randomBeaconSpawner.transform.position, randomBeaconSpawner.transform.rotation);
-        instance.GetComponent<BeaconTrigger>().setParentGameObject(randomBeaconSpawner);
+        instance.GetComponent<BeaconTrigger>().ParentGameObject = randomBeaconSpawner;
     }
 
     private void despawnBeacon(HashSet<GameObject> activeBeaconSpawners, Component sender)
     {
         Destroy(sender.gameObject);
-        activeBeaconSpawners.Remove(sender.GetComponent<BeaconTrigger>().getParentGameObject());
+        activeBeaconSpawners.Remove(sender.GetComponent<BeaconTrigger>().ParentGameObject);
+
     }
 
     private void spawnRandomBeacon(List<GameObject> gameObjectTemplates, List<GameObject> beaconSpawners, HashSet<GameObject> activeBeaconSpawners)

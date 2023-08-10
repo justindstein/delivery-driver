@@ -39,7 +39,7 @@ public class CollectionUtil : ScriptableObject
         }
 
         List<T> reducedList = new List<T>(elements.ToArray());
-        if(excludeElements != null)
+        if (excludeElements != null)
         {
             foreach (T excludedElement in excludeElements)
             {
@@ -49,12 +49,12 @@ public class CollectionUtil : ScriptableObject
             }
         }
 
-        if(reducedList.Count <= 0)
+        if (reducedList.Count <= 0)
         {
             Debug.Log(string.Format("CollectionUtil.GetRandomElementExcluding [elements: {0}, excludeElements: {1}] reducedList unexpectedly empty.", elements, excludeElements));
             return default;
         }
- 
+
         int randomIndex = random.Next(0, reducedList.Count);
         return reducedList[randomIndex];
     }

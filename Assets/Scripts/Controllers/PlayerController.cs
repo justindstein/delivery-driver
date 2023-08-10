@@ -6,11 +6,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float MoveSpeed;
 
     private float speedModifier = 1.0f;
+    private const float MAX_SPEED_MODIFIER = 1.8f;
+    private const float MIN_SPEED_MODIFIER = 0.65f;
 
     private SpriteRenderer spriteRenderer;
 
     private Color32 defaultColor;
-    private readonly Color32 COLOR_GREEN = Color.green; // TODO: why isn't this serialized?
+    private readonly Color32 COLOR_GREEN = Color.green;
 
     private const string HORIZONTAL_AXIS = "Horizontal";
     private const string VERTICAL_AXIS = "Vertical";
@@ -59,16 +61,12 @@ public class PlayerController : MonoBehaviour
     public void SpeedUp(Component sender, object data)
     {
         Debug.Log(string.Format("PlayerController.SpeedUp: [sender: {0}] [dataL {1}]", sender, data));
-        this.speedModifier += 0.25f;
-        // TODO: Increase this modifier to 1.5x or 2x, schedule a job to end the upgrade after 30s or so.
-        // If bonus is already active, extend it. If opposing bonus is active, remove it.
+        this.speedModifier = Mathf.Min(this.speedModifier + 0.2f, MAX_SPEED_MODIFIER);
     }
 
     public void SpeedDown(Component sender, object data)
     {
         Debug.Log(string.Format("PlayerController.SpeedDown: [sender: {0}] [dataL {1}]", sender, data));
-        this.speedModifier -= 0.25f;
-        // TODO: Increase this modifier to 1.5x or 2x, schedule a job to end the upgrade after 30s or so.
-        // If bonus is already active, extend it. If opposing bonus is active, remove it.
+        this.speedModifier = Mathf.Max(this.speedModifier - 0.1f, MIN_SPEED_MODIFIER);
     }
 }

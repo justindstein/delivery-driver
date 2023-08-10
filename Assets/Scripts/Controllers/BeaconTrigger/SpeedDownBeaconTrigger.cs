@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class SpeedDownBeaconTrigger : BeaconTrigger
 {
+    [SerializeField] private float BeaconExpiry;
+
     [Header("Events")]
-    public GameEvent OnSpeedDown; // TODO: remove 'on' and rename these to 'SpeedDownEvent'.
+    public GameEvent OnSpeedDown;
     public GameEvent BeaconExpire;
 
     void Start()
     {
-        // Note: parameters 'time' and 'repeatRate' not working as expected. 'time' influences
-        //frequency, and 'repeatRate' influences initial delay.
-        InvokeRepeating("OnBeaconExpire", 10.0f, 0.0f);
+        Invoke("OnBeaconExpire", this.BeaconExpiry);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
