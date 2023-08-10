@@ -6,7 +6,6 @@ This project is a 2-d driving game written using the Unity game engine. This gam
 
 Playable on [itch.io](https://justindstein.itch.io/delivery-driver).
 
-
-<video src='https://github.com/justindstein/delivery-driver/blob/main/demo/delivery-driver-demo.mov' width=180/>
+<video src='https://github.com/justindstein/delivery-driver/blob/main/demo/delivery-driver-demo.mov' />
 
 ### Gameplay Features
