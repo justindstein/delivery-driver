@@ -1,6 +1,6 @@
 # delivery-driver
 
-This project is a 2-d driving game written using the Unity game engine. This game was built primarily for self-educational purposes with guidence from [this tutorial](https://www.udemy.com/course/unitycourse/).
+This project is a 2d driving game written using the Unity game engine. This game was built primarily for self-educational purposes with guidence from [this tutorial](https://www.udemy.com/course/unitycourse/).
 
 ### Gameplay Features
 - Pickup green packages and deliver to cyan delivery points.
